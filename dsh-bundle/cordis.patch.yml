@@ -1,0 +1,24 @@
+# Applied on top of whatever profile installs this bundle (normally
+# @deepseek-ai/dsh-base, which already mounts skill / skill-filesystem /
+# tool-skill -- see docs/user/develop/basic/publish.md's loading order).
+# This bundle's own contribution is the storage-domain substrate plus the
+# three tools that read/write it.
+- insert:
+    - id: storage
+      name: '@deepseek-ai/dsh-storage'
+
+    - id: storage-json
+      name: '@deepseek-ai/dsh-storage-json'
+      config:
+        # Relative to the booted process's cwd, matching how `dsh-fs-local`
+        # resolves its own `cwd` config elsewhere in this repo's compositions.
+        # Run dsh from the repository root so this lands at <repo>/.dsh-task-memory.
+        root: './.dsh-task-memory'
+
+    - id: storage-domain
+      name: '@deepseek-ai/dsh-storage-domain'
+      config:
+        backend: json
+
+    - id: tool-task-memory
+      name: 'dsh-csv-anomaly-memory'

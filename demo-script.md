@@ -11,6 +11,15 @@ Everything below is already captured in the repo (`runs/*.json`,
 can present from the committed artifacts directly, or re-run any session
 live with the commands shown.
 
+**Note on scope:** this walkthrough is for the standalone Python simulation
+at the repository root (no external dependencies, fully executed). There is
+also a real DeepSeek Harness plugin bundle at `dsh-bundle/` -- structurally
+verified (real npm deps, clean typecheck against the actual framework's
+published types) but never booted, since that needs the real `dsh` CLI and a
+`DEEPSEEK_API_KEY` neither available while building this. See
+`dsh-bundle/README.md` if you want to demo that track instead once you have
+both.
+
 ## 0. Set the stage (30s)
 
 > "This is a data-quality-checking agent. Every session gets a fresh vendor

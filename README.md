@@ -6,9 +6,34 @@ distills what worked into a reusable, saved skill -- not because any model
 weights changed. Everything driving the improvement (the skill file, the
 memory store, the trajectories) is inspectable, not a black box.
 
-This build is a self-contained Python (stdlib-only) implementation -- no
-external services required, `python3 agent/agent.py ...` runs a full
-session end to end.
+## Two tracks in this repo
+
+This repo was empty (no DeepSeek Harness code) when this was built, so
+there are two distinct things here -- don't conflate them:
+
+1. **The root of this repo (`agent/`, `skills/`, `memory-store/`, `runs/`,
+   `metrics.csv`)** is a self-contained Python (stdlib-only) *simulation* of
+   the same architecture, with no dependency on the real
+   [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness).
+   `python3 agent/agent.py ...` runs a full session end to end, right now, no
+   API key required. **Fully executed and verified** -- every acceptance
+   criterion below was checked by actually running the sequence, not asserted.
+2. **`dsh-bundle/`** is a real, installable DeepSeek Harness plugin bundle
+   (the framework really exists, at that GitHub URL, built on Cordis) that
+   wires `ctx.storageDomain` (the actual Cordis storage plugin) and three
+   model-facing tools for cross-session memory. Its dependencies are real,
+   published npm packages -- `npm install` and `tsc` against them both
+   succeed in this repo -- but it has **not been booted or run**: that needs
+   the real `dsh` CLI and a `DEEPSEEK_API_KEY`, neither available in this
+   environment. See `dsh-bundle/README.md` for exactly what's verified vs.
+   not, and how to actually run it. The skill it uses lives at
+   `.dsh/skills/csv-anomaly-check-v1/` (harness-native discovery path); its
+   `check.py` resource script is standalone and does pass
+   `task-family/checker.py` for real.
+
+Track 1 is what the rest of this README and `demo-script.md` describe and
+is safe to present live. Track 2 is the structurally-real integration,
+staged for whenever a harness install + API key are available.
 
 ## Layout
 
@@ -34,7 +59,12 @@ session end to end.
 - `runs/reports/` -- the anomaly report each session produced.
 - `metrics.csv` -- one row per run: `run_id, tool_calls,
   wall_clock_seconds, errors_encountered, skill_version_used, correct`.
-- `demo-script.md` -- presenter walkthrough.
+- `demo-script.md` -- presenter walkthrough (track 1, the verified simulation).
+- `dsh-bundle/` -- track 2: the real, installable DeepSeek Harness plugin
+  bundle (storage-domain memory + three tools). See its own README.
+- `.dsh/skills/csv-anomaly-check-v1/` -- the skill `dsh-bundle` uses,
+  in the real harness's `skill-filesystem` on-disk format (`SKILL.md` +
+  a callable `check.py`), auto-discovered by project-root convention.
 
 ## Quick start
 

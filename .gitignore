@@ -1,3 +1,9 @@
 __pycache__/
 *.pyc
 runs/tmp_regression/
+
+# dsh-bundle: real npm deps + tsc output, regenerate with
+# `cd dsh-bundle && npm install && npm run build`
+dsh-bundle/node_modules/
+dsh-bundle/lib/
+.dsh-task-memory/
