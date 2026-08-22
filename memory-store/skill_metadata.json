@@ -1,0 +1,31 @@
+{
+  "skills": [
+    {
+      "name": "csv-anomaly-check",
+      "version": "v1",
+      "created_from_run": "run-1",
+      "reason": "initial distillation of cold-start approach"
+    },
+    {
+      "name": "csv-anomaly-check",
+      "version": "v2",
+      "created_from_run": "run-3",
+      "based_on": "v1",
+      "reason": "sanity scan found sentinel placeholder values (NULL/N/A/-/--/NaN) in sku/quantity/unit_price cells that the missing-value check didn't recognize."
+    },
+    {
+      "name": "csv-anomaly-check",
+      "version": "v3",
+      "created_from_run": "run-4",
+      "based_on": "v2",
+      "reason": "sanity scan found quantity or unit_price values of exactly 0, which the out-of-range check currently treats as valid."
+    },
+    {
+      "name": "csv-anomaly-check",
+      "version": "v4",
+      "created_from_run": "run-7",
+      "based_on": "v3",
+      "reason": "sanity scan found unit_price values prefixed with a currency symbol ($/\u20ac/\u00a3) -- a category with no existing check at all."
+    }
+  ]
+}

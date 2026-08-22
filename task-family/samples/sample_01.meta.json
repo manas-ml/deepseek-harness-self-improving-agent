@@ -1,0 +1,64 @@
+{
+  "file": "sample_01.csv",
+  "seed": 101,
+  "columns": [
+    "row_id",
+    "order_id",
+    "sku",
+    "product_name",
+    "quantity",
+    "unit_price",
+    "order_date",
+    "warehouse"
+  ],
+  "anomalies": [
+    {
+      "type": "duplicate_row",
+      "row_id": "37",
+      "field": null,
+      "detail": "exact duplicate of row_id=7"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "17",
+      "field": "order_date",
+      "detail": "order_date='06/02/2024'"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "18",
+      "field": "order_date",
+      "detail": "order_date='16/06/2024'"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "2",
+      "field": "quantity",
+      "detail": "value='' (style=empty)"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "33",
+      "field": "unit_price",
+      "detail": "value='' (style=empty)"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "16",
+      "field": "unit_price",
+      "detail": "unit_price=-12.50 (mode=negative)"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "23",
+      "field": "unit_price",
+      "detail": "unit_price=-12.50 (mode=negative)"
+    },
+    {
+      "type": "shifted_column",
+      "row_id": "34",
+      "field": "quantity",
+      "detail": "quantity/unit_price values swapped"
+    }
+  ]
+}

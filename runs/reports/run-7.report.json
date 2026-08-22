@@ -1,0 +1,80 @@
+{
+  "file": "task-family/samples/sample_07.csv",
+  "generated_at": "2026-08-22T05:53:58.755457+00:00",
+  "anomalies_found": [
+    {
+      "type": "missing_value",
+      "row_id": "23",
+      "field": "unit_price",
+      "detail": "value='-'"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "19",
+      "field": "quantity",
+      "detail": "quantity=-5"
+    },
+    {
+      "type": "currency_symbol",
+      "row_id": "5",
+      "field": "unit_price",
+      "detail": "unit_price='\u00a3375.42'"
+    },
+    {
+      "type": "shifted_column",
+      "row_id": "25",
+      "field": "quantity",
+      "detail": "non-numeric quantity='262.12'"
+    },
+    {
+      "type": "currency_symbol",
+      "row_id": "10",
+      "field": "unit_price",
+      "detail": "unit_price='$249.73'"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "3",
+      "field": "order_date",
+      "detail": "order_date='02-09-2024'"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "13",
+      "field": "order_date",
+      "detail": "order_date='27/05/24'"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "7",
+      "field": "unit_price",
+      "detail": "unit_price=-12.50"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "4",
+      "field": "unit_price",
+      "detail": "value='-'"
+    },
+    {
+      "type": "duplicate_row",
+      "row_id": "40",
+      "field": null,
+      "detail": "exact duplicate of an earlier row"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "40",
+      "field": "order_date",
+      "detail": "order_date='27/05/24'"
+    }
+  ],
+  "summary": {
+    "missing_value": 2,
+    "out_of_range": 2,
+    "currency_symbol": 2,
+    "shifted_column": 1,
+    "malformed_date": 3,
+    "duplicate_row": 1
+  }
+}

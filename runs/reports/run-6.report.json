@@ -1,0 +1,79 @@
+{
+  "file": "task-family/samples/sample_06.csv",
+  "generated_at": "2026-08-22T05:53:58.508969+00:00",
+  "anomalies_found": [
+    {
+      "type": "missing_value",
+      "row_id": "20",
+      "field": "unit_price",
+      "detail": "value='--'"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "26",
+      "field": "order_date",
+      "detail": "order_date='01/04/2024'"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "25",
+      "field": "unit_price",
+      "detail": "value='N/A'"
+    },
+    {
+      "type": "shifted_column",
+      "row_id": "24",
+      "field": "quantity",
+      "detail": "non-numeric quantity='24.27'"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "40",
+      "field": "order_date",
+      "detail": "order_date='18.08.2024'"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "28",
+      "field": "order_date",
+      "detail": "order_date='21/10/2024'"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "18",
+      "field": "quantity",
+      "detail": "quantity=-5"
+    },
+    {
+      "type": "shifted_column",
+      "row_id": "6",
+      "field": "quantity",
+      "detail": "non-numeric quantity='126.04'"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "3",
+      "field": "quantity",
+      "detail": "quantity=-5"
+    },
+    {
+      "type": "duplicate_row",
+      "row_id": "43",
+      "field": null,
+      "detail": "exact duplicate of an earlier row"
+    },
+    {
+      "type": "duplicate_row",
+      "row_id": "44",
+      "field": null,
+      "detail": "exact duplicate of an earlier row"
+    }
+  ],
+  "summary": {
+    "missing_value": 2,
+    "malformed_date": 3,
+    "shifted_column": 2,
+    "out_of_range": 2,
+    "duplicate_row": 2
+  }
+}

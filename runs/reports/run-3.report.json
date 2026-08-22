@@ -1,0 +1,73 @@
+{
+  "file": "task-family/samples/sample_03.csv",
+  "generated_at": "2026-08-22T05:53:58.032886+00:00",
+  "anomalies_found": [
+    {
+      "type": "malformed_date",
+      "row_id": "27",
+      "field": "order_date",
+      "detail": "order_date='November 12, 2024'"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "1",
+      "field": "quantity",
+      "detail": "quantity=-5"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "5",
+      "field": "sku",
+      "detail": "value='NULL'"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "20",
+      "field": "unit_price",
+      "detail": "value='--'"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "3",
+      "field": "quantity",
+      "detail": "value='NULL'"
+    },
+    {
+      "type": "shifted_column",
+      "row_id": "12",
+      "field": "quantity",
+      "detail": "non-numeric quantity='829.52'"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "25",
+      "field": "quantity",
+      "detail": "quantity=99999"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "17",
+      "field": "order_date",
+      "detail": "order_date='10/10/2024'"
+    },
+    {
+      "type": "duplicate_row",
+      "row_id": "35",
+      "field": null,
+      "detail": "exact duplicate of an earlier row"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "35",
+      "field": "quantity",
+      "detail": "quantity=-5"
+    }
+  ],
+  "summary": {
+    "malformed_date": 2,
+    "out_of_range": 3,
+    "missing_value": 3,
+    "shifted_column": 1,
+    "duplicate_row": 1
+  }
+}

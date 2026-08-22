@@ -1,0 +1,21 @@
+{
+  "skills": [
+    {
+      "name": "csv-anomaly-check",
+      "latest_version": "v4",
+      "latest_version_dir": "csv-anomaly-check-v4",
+      "trigger_keywords": [
+        "csv",
+        "vendor",
+        "anomaly",
+        "anomalies",
+        "data issue",
+        "data issues",
+        "export",
+        "data quality",
+        "vendor export"
+      ],
+      "description": "Flags missing values, duplicate rows, out-of-range numbers, malformed dates, and shifted columns in vendor-export CSVs. (v4)"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "file": "sample_02.csv",
+  "seed": 202,
+  "columns": [
+    "row_id",
+    "order_id",
+    "sku",
+    "product_name",
+    "quantity",
+    "unit_price",
+    "order_date",
+    "warehouse"
+  ],
+  "anomalies": [
+    {
+      "type": "duplicate_row",
+      "row_id": "39",
+      "field": null,
+      "detail": "exact duplicate of row_id=27"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "17",
+      "field": "order_date",
+      "detail": "order_date='November 21, 2024'"
+    },
+    {
+      "type": "malformed_date",
+      "row_id": "22",
+      "field": "order_date",
+      "detail": "order_date='07.03.2024'"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "20",
+      "field": "quantity",
+      "detail": "value='' (style=empty)"
+    },
+    {
+      "type": "missing_value",
+      "row_id": "30",
+      "field": "sku",
+      "detail": "value='' (style=empty)"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "24",
+      "field": "quantity",
+      "detail": "quantity=-5 (mode=negative)"
+    },
+    {
+      "type": "out_of_range",
+      "row_id": "4",
+      "field": "quantity",
+      "detail": "quantity=99999 (mode=huge)"
+    },
+    {
+      "type": "shifted_column",
+      "row_id": "12",
+      "field": "quantity",
+      "detail": "quantity/unit_price values swapped"
+    }
+  ]
+}

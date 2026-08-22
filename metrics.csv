@@ -1,0 +1,8 @@
+run_id,tool_calls,wall_clock_seconds,errors_encountered,skill_version_used,correct
+run-1,11,0.8673,1,none,y
+run-2,4,0.0743,0,v1,y
+run-3,7,0.1991,0,v2,y
+run-4,7,0.1999,0,v3,y
+run-5,4,0.0732,0,v3,y
+run-6,4,0.0728,0,v3,y
+run-7,7,0.2034,0,v4,y

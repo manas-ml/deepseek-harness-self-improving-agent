@@ -1,0 +1,75 @@
+{
+  "run_id": "run-3",
+  "sample_file": "task-family/samples/sample_03.csv",
+  "prompt": "Check this vendor export for data issues and produce a report.",
+  "tool_calls": 7,
+  "errors_encountered": 0,
+  "wall_clock_seconds": 0.1989,
+  "skill_version_used": "v2",
+  "steps": [
+    {
+      "step": 1,
+      "tool": "discover_and_load_skill",
+      "input": "Check this vendor export for data issues and produce a report.",
+      "output": "matched csv-anomaly-check v1",
+      "duration_s": 0.0006,
+      "error": false,
+      "timestamp": "2026-08-22T05:53:57.835153+00:00"
+    },
+    {
+      "step": 2,
+      "tool": "invoke_skill.check (v1)",
+      "input": "task-family/samples/sample_03.csv",
+      "output": "8 anomalies found",
+      "duration_s": 0.0004,
+      "error": false,
+      "timestamp": "2026-08-22T05:53:57.855775+00:00"
+    },
+    {
+      "step": 3,
+      "tool": "sanity_scan",
+      "input": "cross-check raw values against report",
+      "output": "gaps=['sentinel_missing']",
+      "duration_s": 0.0003,
+      "error": false,
+      "timestamp": "2026-08-22T05:53:57.876268+00:00"
+    },
+    {
+      "step": 4,
+      "tool": "reflect_and_version_skill",
+      "input": "gap=sentinel_missing, base=v1",
+      "output": "wrote csv-anomaly-check-v2 (v2)",
+      "duration_s": 0.0015,
+      "error": false,
+      "timestamp": "2026-08-22T05:53:57.907980+00:00"
+    },
+    {
+      "step": 5,
+      "tool": "regression_guard_replay",
+      "input": "replay v2 against 2 prior sample(s)",
+      "output": "passed=True",
+      "duration_s": 0.0034,
+      "error": false,
+      "timestamp": "2026-08-22T05:53:57.961730+00:00"
+    },
+    {
+      "step": 6,
+      "tool": "invoke_skill.check (v2)",
+      "input": "task-family/samples/sample_03.csv",
+      "output": "10 anomalies found",
+      "duration_s": 0.0003,
+      "error": false,
+      "timestamp": "2026-08-22T05:53:58.012585+00:00"
+    },
+    {
+      "step": 7,
+      "tool": "write_report",
+      "input": "/home/user/deepseek-harness-self-improving-agent/runs/reports/run-3.report.json",
+      "output": "10 anomalies written",
+      "duration_s": 0.0005,
+      "error": false,
+      "timestamp": "2026-08-22T05:53:58.033272+00:00"
+    }
+  ],
+  "correct": true
+}
