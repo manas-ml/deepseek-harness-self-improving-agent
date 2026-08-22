@@ -52,15 +52,26 @@ tool. That script already runs standalone and passes the repo's own
 - `.dsh/skills/csv-anomaly-check-v1/check.py` runs standalone and its report
   passes `task-family/checker.py` on a real sample file.
 
-**Not verified — needs a real `dsh` install + a `DEEPSEEK_API_KEY`:**
-- That `dsh plugin --profile <name> add ./dsh-bundle` actually links this
-  package into a profile correctly.
-- That `dsh --profile <name> --dump-config` shows the composed layer without
-  error (this needs no API key and is the natural next verification step —
-  see below).
+**Also verified, for real, against the actual `dsh` CLI (no API key needed):**
+- `npm install @deepseek-ai/dsh@0.1.1-rc.2` installs the real CLI.
+- `dsh plugin --profile csv-anomaly add ./dsh-bundle` initializes a real
+  profile (auto-adding `@deepseek-ai/dsh-base` first) and links this bundle
+  in via pnpm — no errors.
+- `dsh --profile csv-anomaly --dump-config` composes cleanly: the output
+  shows a `# == dsh-csv-anomaly-memory` layer with exactly the four rows
+  from `cordis.patch.yml` (`storage`, `storage-json`, `storage-domain`,
+  `tool-task-memory`), correctly layered after `# == @deepseek-ai/dsh-base`.
+  No error or warning anywhere in the dump.
+
+**Not verified — needs a `DEEPSEEK_API_KEY`:**
+- Actually booting the profile (`dsh --profile csv-anomaly "task"`) hangs
+  with no output in this sandbox even after 25s — most likely a network call
+  to a DeepSeek endpoint that this environment's outbound proxy doesn't
+  fast-fail on, not a plugin problem (the config composes and the CLI itself
+  works fine, as above). Untested either way without a key.
 - That a live model session actually discovers and calls these tools the way
   `SKILL.md` tells it to, and that the storage-domain writes/reads round-trip
-  through a real `storage-json` backend on disk.
+  through a real `storage-json` backend on disk during an actual run.
 
 ## How to actually run this
 
